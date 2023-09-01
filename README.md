@@ -10,11 +10,10 @@
 ### ¿Qué métodos considera que debería tener la clase Cadetería y la clase Cadete?
 Cadetería
 - tomarPedido()
-- finalizarPedido()
-- modificarPedido()
 - añadirCadete()
 - eliminarCadete()
 - modificarCadete()
+- reasignarCadete()
 
 Cadete
 - asignarPedido()
