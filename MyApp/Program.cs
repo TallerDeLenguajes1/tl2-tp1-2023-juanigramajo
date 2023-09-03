@@ -5,9 +5,16 @@ using System;
 using System.IO;
 
 
-void cargarDatosCadeterias(){
+Console.WriteLine("\nCargando datos de la cadeteria...");
+
+Cadeteria cadeteria = cargarDatosCadeterias();
+cadeteria.VerDatosCadeteria();
+
+
+Cadeteria cargarDatosCadeterias(){
 
     string filePath = "datosCadeteria.csv";
+    Cadeteria cadeteria = new Cadeteria();
         
     try
     {
@@ -22,16 +29,18 @@ void cargarDatosCadeterias(){
             string columna1 = fields[0];
             string columna2 = fields[1];
 
-            Cadeteria cadeteria = new Cadeteria(columna1, int.Parse(columna2));
+            cadeteria = new Cadeteria(columna1, int.Parse(columna2));
         }
     }
     catch (IOException e)
     {
         Console.WriteLine($"Error al leer el archivo: {e.Message}");
     }
+
+    return cadeteria;
 }
 
-void cargarDatosCadetes(){
+/* void cargarDatosCadetes(){
 
     string filePath = "datosCadetes.csv"; // Reemplaza con la ruta de tu archivo CSV.
         
@@ -58,3 +67,4 @@ void cargarDatosCadetes(){
         Console.WriteLine($"Error al leer el archivo: {e.Message}");
     }
 }
+*/

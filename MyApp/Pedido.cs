@@ -14,6 +14,21 @@ public class Pedido
         this.Estado = status;
     }
 
+    public int getNroPedido(){
+
+        return this.Nro;
+    }
+
+    public string getObs(){
+        
+        return this.Obs;
+    }
+
+    public string getEstado(){
+        
+        return this.Estado;
+    }
+
     public void VerDireccionCliente(){
         Console.WriteLine("La dirección del cliente es: " + this.cliente.GetDireccion());
         Console.WriteLine(this.cliente.GetDatosReferenciaDireccion());
@@ -25,6 +40,5 @@ public class Pedido
         Console.WriteLine("Direccion: " + this.cliente.GetDireccion());
         Console.WriteLine("Telefono: " + this.cliente.GetTelefono());
         Console.WriteLine("Datos de referencia de la direccion: " + this.cliente.GetDatosReferenciaDireccion());
-
     }
 }
