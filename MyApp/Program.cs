@@ -9,6 +9,9 @@ Console.WriteLine("\nCargando datos de la cadeteria...");
 
 Cadeteria cadeteria = cargarDatosCadeterias();
 cadeteria.VerDatosCadeteria();
+cargarDatosCadetes(cadeteria);
+cadeteria.mostrarCadetes();
+
 
 
 Cadeteria cargarDatosCadeterias(){
@@ -40,7 +43,7 @@ Cadeteria cargarDatosCadeterias(){
     return cadeteria;
 }
 
-/* void cargarDatosCadetes(){
+void cargarDatosCadetes(Cadeteria cadeteria){
 
     string filePath = "datosCadetes.csv"; // Reemplaza con la ruta de tu archivo CSV.
         
@@ -60,6 +63,7 @@ Cadeteria cargarDatosCadeterias(){
             string columna4 = fields[3];
 
             Cadete cadete = new Cadete(int.Parse(columna1), columna2, columna3, int.Parse(columna4));
+            cadeteria.AñadirCadete(cadete);
         }
     }
     catch (IOException e)
@@ -67,4 +71,3 @@ Cadeteria cargarDatosCadeterias(){
         Console.WriteLine($"Error al leer el archivo: {e.Message}");
     }
 }
-*/

@@ -19,6 +19,17 @@ public class Cadeteria
         Console.WriteLine("Telefono: " + this.Telefono);
     }
 
+    public void mostrarCadetes(){
+        foreach (Cadete cad in this.ListadoCadetes)
+        {
+            System.Console.WriteLine($"Cadete [{cad.getID()}]");
+            System.Console.WriteLine($"Nombre: " + cad.getNombre());
+            System.Console.WriteLine($"Dirección: " + cad.getDireccion());
+            System.Console.WriteLine($"Telefono: " + cad.getTelefono());
+
+        }
+    }
+
     public void TomarPedido(int num, string observ, string status, string name, string address, int phoneNumb, string addressReferences){
         Pedido pedido = new Pedido(num, observ, status, name, address, phoneNumb, addressReferences);
         
@@ -61,8 +72,7 @@ public class Cadeteria
         }
     }
 
-    public void AñadirCadete(int id, string name, string address, int phoneNumb){
-        Cadete cadete = new Cadete(id, name, address, phoneNumb);
+    public void AñadirCadete(Cadete cadete){
         this.ListadoCadetes.Add(cadete);
     }
 
