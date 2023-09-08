@@ -6,6 +6,8 @@ public class Pedido
     private Cliente cliente;
     private string Estado;
 
+    public Pedido(){
+    }
 
     public Pedido(int number, string observ, string status, string name, string address, int phoneNumb, string addressReferences){
         this.Nro = number;
@@ -27,6 +29,13 @@ public class Pedido
     public string getEstado(){
         
         return this.Estado;
+    }
+
+    public void listarPedido(){
+        Console.WriteLine($"\nPedido Nº[{this.Nro}]");
+        Console.WriteLine($"Observación: " + this.Obs);
+        Console.WriteLine($"Nombre del cliente: " + this.cliente.GetNombre());
+        Console.WriteLine($"Estado: " + this.Estado);
     }
 
     public void VerDireccionCliente(){

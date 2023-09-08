@@ -9,16 +9,29 @@
 
 ### ¿Qué métodos considera que debería tener la clase Cadetería y la clase Cadete?
 Cadetería
-- tomarPedido()
-- añadirCadete()
-- eliminarCadete()
-- modificarCadete()
-- reasignarCadete()
+- VerDatosCadeteria()
+- MostrarCadetes()
+- FinalizarPedido()
+- GananciasPorCadete()
+- GenerarInforme()
+- MostrarPedidosDeCadetes()
+- MostrarPedidosDeCadetes() (para un cadete en específico)
+- TomarPedido()
+- ReasignarCadete()
+- AñadirCadete()
+- EliminarCadete()
+- ModificarCadete() (falta programar)
+
 
 Cadete
-- asignarPedido()
-- listarPedidos()
-- finalizarPedido()
+- ListarPedidos()
+- AsignarPedido()
+- JornalACobrar()
+- DevolverTalPedido() (como un get)
+- AsignarPedido()
+- ModificarPedido() (falta programar)
+- FinalizarPedido()
+- EliminarPedidoSinEntregar()
 
 
 ### Teniendo en cuenta los principios de abstracción y ocultamiento, que atributos, propiedades y métodos deberían ser públicos y cuáles privados.

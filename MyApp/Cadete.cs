@@ -37,25 +37,47 @@ public class Cadete{
         return this.Telefono;
     }
 
-    public void JornalACobrar(){
-        
-        Console.WriteLine("\nTotal recaudado en el día: " + (this.PedidosEntregados * 500));
+    public int getPedEntregados(){
+
+        return this.PedidosEntregados;
     }
 
+    public void ListarPedidos(){
+
+        if (this.ListadoPedidos.Any())
+        {
+            Console.WriteLine($"\n--------------------------");
+            Console.WriteLine($"Cadete ID[{this.ID}]");
+        }
+
+        foreach (Pedido ped in this.ListadoPedidos)
+        {            
+            ped.listarPedido();
+        }
+    }
+    
+    public int JornalACobrar(){
+        
+        return this.PedidosEntregados * 500;
+    }
+
+    public Pedido devolverTalPedido(int nroPedido){
+
+        Pedido pedid = new Pedido();
+        foreach (Pedido ped in this.ListadoPedidos)
+        {
+            if (ped.getNroPedido() == nroPedido)
+            {
+                pedid = ped;
+            }
+        }
+        
+        return pedid;
+    }
+    
     public void AsignarPedido(Pedido pedido){
 
         this.ListadoPedidos.Add(pedido);
-    }
-
-    public void AsignarPedido(int numPed){
-
-        foreach (Pedido ped in this.ListadoPedidos)
-            {
-                if (ped.getNroPedido() == numPed)
-                {
-                    this.ListadoPedidos.Add(ped);
-                }
-            }
     }
 
     // private void ModificarPedido(int nro, string observ, string status){
@@ -81,24 +103,32 @@ public class Cadete{
     // }
     
     public void FinalizarPedido(int nro){
-        foreach (Pedido ped in this.ListadoPedidos)
+
+        for (int i = 0; i < this.ListadoPedidos.Count; i++)
         {
+            Pedido ped = this.ListadoPedidos[i];
             if (ped.getNroPedido() == nro)
             {
                 this.PedidosEntregados++;
                 this.ListadoPedidos.Remove(ped);
-                Console.WriteLine("Se entregó el pedido con éxito");
+                Console.WriteLine("\nSe entregó el pedido con éxito");
+                // Resta 1 a i para compensar el desplazamiento después de eliminar un elemento
+                i--;
             }
         }
     }
 
-    public void EliminarPedidoSinEntregar(int nro){
-        foreach (Pedido ped in this.ListadoPedidos)
+    public void EliminarPedidoSinEntregar(int nro)
+    {
+        for (int i = 0; i < this.ListadoPedidos.Count; i++)
         {
+            Pedido ped = this.ListadoPedidos[i];
             if (ped.getNroPedido() == nro)
             {
                 this.ListadoPedidos.Remove(ped);
-                Console.WriteLine("Se eliminó el pedido con éxito");
+                Console.WriteLine("\nSe eliminó el pedido con éxito");
+                // Resta 1 a i para compensar el desplazamiento después de eliminar un elemento
+                i--;
             }
         }
     }
