@@ -5,6 +5,7 @@ public class Pedido
     private string Obs;
     private Cliente cliente;
     private string Estado;
+    private Cadete cadete;
 
     public Pedido(){
     }
@@ -14,6 +15,10 @@ public class Pedido
         this.Obs = observ;
         this.cliente = new Cliente(name, address, phoneNumb, addressReferences);
         this.Estado = status;
+    }
+
+    public void AsignarCadete(Cadete cadeteEnviado){
+        this.cadete = cadeteEnviado;
     }
 
     public int getNroPedido(){
@@ -31,7 +36,17 @@ public class Pedido
         return this.Estado;
     }
 
-    public void listarPedido(){
+    public int getIDCadete(){
+        if (cadete == null)
+        {
+            return -1;
+        } else
+        {
+            return this.cadete.getID();
+        }
+    }
+    
+    public void ListarPedido(){
         Console.WriteLine($"\nPedido Nº[{this.Nro}]");
         Console.WriteLine($"Observación: " + this.Obs);
         Console.WriteLine($"Nombre del cliente: " + this.cliente.GetNombre());

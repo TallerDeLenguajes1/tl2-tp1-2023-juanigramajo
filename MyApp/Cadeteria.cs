@@ -4,6 +4,7 @@ public class Cadeteria
     private string Nombre;
     private int Telefono;
     private List<Cadete> ListadoCadetes;
+    private List<Pedido> ListadoPedidos;
 
 
     public Cadeteria(){
@@ -13,6 +14,35 @@ public class Cadeteria
         this.Nombre = name;
         this.Telefono = phoneNumb;
         this.ListadoCadetes = new List<Cadete>();
+        this.ListadoPedidos = new List<Pedido>();
+    }
+
+    public void TomarPedido(int num, string observ, string status, string name, string address, int phoneNumb, string addressReferences){
+        Pedido pedido = new Pedido(num, observ, status, name, address, phoneNumb, addressReferences);
+        ListadoPedidos.Add(pedido);
+    }
+    
+    public void ListarPedidos(){
+
+        foreach (Pedido ped in this.ListadoPedidos)
+        {            
+            Console.WriteLine($"\n--------------------------");
+            ped.ListarPedido();
+        }
+    }
+
+    public Pedido devolverTalPedido(int nroPedido){
+
+        Pedido pedid = new Pedido();
+        foreach (Pedido ped in this.ListadoPedidos)
+        {
+            if (ped.getNroPedido() == nroPedido)
+            {
+                pedid = ped;
+            }
+        }
+        
+        return pedid;
     }
 
     public void VerDatosCadeteria(){
@@ -30,25 +60,17 @@ public class Cadeteria
         }
     }
 
-    public void FinalizarPedido(int cadeteID, int nroPed){
+    public int JornalACobrar(int cadeteID){
+        int jornal = 0;
         foreach (Cadete cad in this.ListadoCadetes)
         {
             if (cad.getID() == cadeteID)
             {
-                cad.FinalizarPedido(nroPed);
+                jornal = (cad.getPedEntregados() * 500);
             }
         }
-    }
-
-    public void GananciasPorCadete(int cadeteID){
-        foreach (Cadete cad in this.ListadoCadetes)
-        {
-            if (cad.getID() == cadeteID)
-            {
-                Console.WriteLine($"\nCadete Nº[{cad.getID()}]");
-                Console.WriteLine("\nTotal recaudado en el día: " + cad.JornalACobrar());
-            }
-        }
+    
+        return jornal;
     }
 
     public void GenerarInforme(){
@@ -58,63 +80,90 @@ public class Cadeteria
             Console.WriteLine("\n------------------------------------------------");
             Console.WriteLine($"\nCadete Nº[{cad.getID()}]");
             Console.WriteLine("\nCantidad de envios en el día: " + cad.getPedEntregados());
-            Console.WriteLine("\nTotal recaudado en el día: " + cad.JornalACobrar());
-            total = total + cad.JornalACobrar();
+            Console.WriteLine("\nTotal recaudado en el día: " + this.JornalACobrar(cad.getID()));
+            total = total + this.JornalACobrar(cad.getID());
         }
         Console.WriteLine("\n\n\nTotal ganado en el día por la cadetería: " + total);
     }
 
-    public void MostrarPedidosDeCadetes(){
-        foreach (Cadete cad in this.ListadoCadetes)
-        {
-            cad.ListarPedidos();
-        }
-    }
+    // public void MostrarPedidosDeCadetes(){
+    //     foreach (Cadete cad in this.ListadoCadetes)
+    //     {
+    //         cad.ListarPedidos();
+    //     }
+    // }
 
     public void MostrarPedidosDeCadetes(int idCadete){
-        foreach (Cadete cad in this.ListadoCadetes)
+
+        System.Console.WriteLine($"\nEl cadete Nº[{idCadete}] aún no posee pedidos para entregar");
+        Console.WriteLine($"\nCadete Nº[{idCadete}]");
+
+        foreach (Pedido ped in this.ListadoPedidos)
         {
-            if (cad.getID() == idCadete)
+            if (ped.getIDCadete() == idCadete)
             {
-                cad.ListarPedidos();
+                ped.ListarPedido();
             }
         }
     }
 
-    public void TomarPedido(int num, string observ, string status, string name, string address, int phoneNumb, string addressReferences, int cadeteID){
-        Pedido pedido = new Pedido(num, observ, status, name, address, phoneNumb, addressReferences);
-        
-        foreach (Cadete cad in this.ListadoCadetes)
-        {
-            if (cad.getID() == cadeteID)
-            {
-                cad.AsignarPedido(pedido);
-            }
-        }
-    }
+    public void AsignarCadeteAPedido(int cadeteID, int nroPed){
 
-    public void ReasignarCadete(int nroPedido, int idCadeteActual, int idCadeteNuevo){
-        
-        Pedido pedid = new Pedido();
-        
-        foreach (Cadete cad in this.ListadoCadetes)
+        foreach (Pedido ped in this.ListadoPedidos)
         {
-            if (cad.getID() == idCadeteActual)
+            if (ped.getNroPedido() == nroPed)
             {
-                // Busco el pedido para ser reasignado
-                pedid = cad.devolverTalPedido(nroPedido);
-
-                // Busco el cadete y le asigno el pedido
-                foreach (Cadete cade in this.ListadoCadetes)
+                foreach (Cadete cad in this.ListadoCadetes)
                 {
-                    if (cade.getID() == idCadeteNuevo)
+                    if (cad.getID() == cadeteID)
                     {
-                        cade.AsignarPedido(pedid);
+                        ped.AsignarCadete(cad);
+                        Console.WriteLine($"\nPedido Nº[{nroPed}] asignado con éxito al cadete Nº[{cadeteID}]");
                     }
                 }
+            }
+        }
+    }
 
-                // Elimino el pedido del listado de pedidos del cadete
-                cad.EliminarPedidoSinEntregar(nroPedido);
+    // public void ReasignarCadete(int nroPedido, int idCadeteActual, int idCadeteNuevo){
+        
+    //     Pedido pedid = new Pedido();
+        
+    //     foreach (Cadete cad in this.ListadoCadetes)
+    //     {
+    //         if (cad.getID() == idCadeteActual)
+    //         {
+    //             // Busco el pedido para ser reasignado
+    //             pedid = cad.devolverTalPedido(nroPedido);
+
+    //             // Busco el cadete y le asigno el pedido
+    //             foreach (Cadete cade in this.ListadoCadetes)
+    //             {
+    //                 if (cade.getID() == idCadeteNuevo)
+    //                 {
+    //                     cade.AsignarPedido(pedid);
+    //                 }
+    //             }
+
+    //             // Elimino el pedido del listado de pedidos del cadete
+    //             cad.EliminarPedidoSinEntregar(nroPedido);
+    //         }
+    //     }
+    // }
+
+    public void ReasignarCadete(int nroPedido, int idCadeteActual, int idCadeteNuevo){
+
+        foreach (Pedido ped in this.ListadoPedidos)
+        {
+            if (ped.getIDCadete() == idCadeteActual)
+            {
+                foreach (Cadete cad in this.ListadoCadetes)
+                {
+                    if (cad.getID() == idCadeteNuevo)
+                    {
+                        ped.AsignarCadete(cad);
+                    }
+                }
             }
         }
     }
@@ -148,4 +197,40 @@ public class Cadeteria
     //     }
     // }
     
+    public void FinalizarPedido(int nro){
+
+        for (int i = 0; i < this.ListadoPedidos.Count; i++)
+        {
+            Pedido ped = this.ListadoPedidos[i];
+            if (ped.getNroPedido() == nro)
+            {
+                foreach (Cadete cad in this.ListadoCadetes)
+                {
+                    if (cad.getID() == ped.getIDCadete())
+                    {
+                        cad.SumarEntrega();
+                    }
+                }
+                this.ListadoPedidos.Remove(ped);
+                Console.WriteLine("\nSe entregó el pedido con éxito");
+                // Resta 1 a i para compensar el desplazamiento después de eliminar un elemento
+                i--;
+            }
+        }
+    }
+
+    public void EliminarPedidoSinEntregar(int nro)
+    {
+        for (int i = 0; i < this.ListadoPedidos.Count; i++)
+        {
+            Pedido ped = this.ListadoPedidos[i];
+            if (ped.getNroPedido() == nro)
+            {
+                this.ListadoPedidos.Remove(ped);
+                Console.WriteLine("\nSe eliminó el pedido con éxito");
+                // Resta 1 a i para compensar el desplazamiento después de eliminar un elemento
+                i--;
+            }
+        }
+    }
 }

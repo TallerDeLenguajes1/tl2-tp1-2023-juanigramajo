@@ -18,20 +18,33 @@ cadeteria.MostrarCadetes();
 
 
 
-cadeteria.TomarPedido(1, "Pizza especial", "En preparación", "Juan Ignacio", "Gral Paz 445", 381664663, "Gral entre chac. y bsas.", 1);
-cadeteria.TomarPedido(2, "Pizza común", "En preparación", "Diana", "BSAS 500", 381773782, "Entre gral y las piedras", 2);
-cadeteria.TomarPedido(3, "Sanguche JYQ", "En preparación", "Nico", "Juan B Justo 20", 381119283, "Esquina Avellaneda", 3);
-cadeteria.TomarPedido(4, "Sanguche milanesa", "En preparación", "Tiziano", "Avellaneda 300", 381774635, "Pasando el drugstore", 1);
+cadeteria.TomarPedido(1, "Pizza especial", "En preparación", "Juan Ignacio", "Gral Paz 445", 381664663, "Gral entre chac. y bsas.");
+cadeteria.TomarPedido(2, "Pizza común", "En preparación", "Diana", "BSAS 500", 381773782, "Entre gral y las piedras");
+cadeteria.TomarPedido(3, "Sanguche JYQ", "En preparación", "Nico", "Juan B Justo 20", 381119283, "Esquina Avellaneda");
+cadeteria.TomarPedido(4, "Sanguche milanesa", "En preparación", "Tiziano", "Avellaneda 300", 381774635, "Pasando el drugstore");
 
-cadeteria.MostrarPedidosDeCadetes();
-
-
+cadeteria.MostrarPedidosDeCadetes(1);
 cadeteria.MostrarPedidosDeCadetes(2);
-cadeteria.ReasignarCadete(2, 2, 3);
-cadeteria.MostrarPedidosDeCadetes();
+cadeteria.MostrarPedidosDeCadetes(3);
 
-cadeteria.FinalizarPedido(3, 2);
-cadeteria.GananciasPorCadete(3);
+cadeteria.AsignarCadeteAPedido(1, 2);
+cadeteria.AsignarCadeteAPedido(2, 3);
+cadeteria.AsignarCadeteAPedido(3, 1);
+cadeteria.AsignarCadeteAPedido(2, 4);
+
+cadeteria.MostrarPedidosDeCadetes(1);
+cadeteria.MostrarPedidosDeCadetes(2);
+cadeteria.MostrarPedidosDeCadetes(3);
+
+cadeteria.ReasignarCadete(1, 2, 3);
+
+cadeteria.MostrarPedidosDeCadetes(1);
+cadeteria.MostrarPedidosDeCadetes(2);
+cadeteria.MostrarPedidosDeCadetes(3);
+
+cadeteria.FinalizarPedido(1);
+cadeteria.FinalizarPedido(2);
+cadeteria.JornalACobrar(3);
 cadeteria.GenerarInforme();
 
 
