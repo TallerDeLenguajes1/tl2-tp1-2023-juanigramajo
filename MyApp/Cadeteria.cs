@@ -95,7 +95,9 @@ public class Cadeteria
 
     public void MostrarPedidosDeCadetes(int idCadete){
 
-        System.Console.WriteLine($"\nEl cadete Nº[{idCadete}] aún no posee pedidos para entregar");
+        int bandera = 0;
+
+        Console.WriteLine("\n-----------------------");
         Console.WriteLine($"\nCadete Nº[{idCadete}]");
 
         foreach (Pedido ped in this.ListadoPedidos)
@@ -103,7 +105,13 @@ public class Cadeteria
             if (ped.getIDCadete() == idCadete)
             {
                 ped.ListarPedido();
+                bandera = 1;
             }
+        }
+
+        if (bandera == 0)
+        {
+            Console.WriteLine($"\n--- Aún no posee pedidos para entregar ---");
         }
     }
 
@@ -166,6 +174,8 @@ public class Cadeteria
                 }
             }
         }
+
+        System.Console.WriteLine($"\nPedido Nº[{nroPedido}] reasignado con éxito al cadete Nº[{idCadeteNuevo}]");
     }
 
     public void AñadirCadete(Cadete cadete){
@@ -212,7 +222,7 @@ public class Cadeteria
                     }
                 }
                 this.ListadoPedidos.Remove(ped);
-                Console.WriteLine("\nSe entregó el pedido con éxito");
+                Console.WriteLine($"\nSe entregó el pedido Nº[{nro}] con éxito");
                 // Resta 1 a i para compensar el desplazamiento después de eliminar un elemento
                 i--;
             }

@@ -23,6 +23,7 @@ cadeteria.TomarPedido(2, "Pizza común", "En preparación", "Diana", "BSAS 500",
 cadeteria.TomarPedido(3, "Sanguche JYQ", "En preparación", "Nico", "Juan B Justo 20", 381119283, "Esquina Avellaneda");
 cadeteria.TomarPedido(4, "Sanguche milanesa", "En preparación", "Tiziano", "Avellaneda 300", 381774635, "Pasando el drugstore");
 
+
 cadeteria.MostrarPedidosDeCadetes(1);
 cadeteria.MostrarPedidosDeCadetes(2);
 cadeteria.MostrarPedidosDeCadetes(3);
@@ -36,7 +37,7 @@ cadeteria.MostrarPedidosDeCadetes(1);
 cadeteria.MostrarPedidosDeCadetes(2);
 cadeteria.MostrarPedidosDeCadetes(3);
 
-cadeteria.ReasignarCadete(1, 2, 3);
+cadeteria.ReasignarCadete(1, 3, 2);
 
 cadeteria.MostrarPedidosDeCadetes(1);
 cadeteria.MostrarPedidosDeCadetes(2);
