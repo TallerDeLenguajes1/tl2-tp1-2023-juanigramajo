@@ -6,6 +6,8 @@ public class Cadete{
     private int Telefono;
     private int PedidosEntregados;
 
+    public Cadete(){
+    }
 
     public Cadete(int idCad, string name, string address, int phoneNumb){
         this.ID = idCad;
