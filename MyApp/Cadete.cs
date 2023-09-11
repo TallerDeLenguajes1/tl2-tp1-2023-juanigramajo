@@ -1,10 +1,10 @@
 
 public class Cadete{
-    private int ID;
-    private string Nombre;
-    private string Direccion;
-    private int Telefono;
-    private int PedidosEntregados;
+    public int ID { get; set; }
+    public string Nombre { get; set; }
+    public string Direccion { get; set; }
+    public int Telefono { get; set; }
+    public int PedidosEntregados { get; set; }
 
     public Cadete(){
     }

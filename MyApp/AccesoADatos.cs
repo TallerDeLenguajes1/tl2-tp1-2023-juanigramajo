@@ -93,9 +93,7 @@ public class AccesoJSON : AccesoADatos
         {
             // Lee el contenido del archivo JSON y deserialízalo en una instancia de Cadeteria.
             string json = File.ReadAllText(filePath);
-            System.Console.WriteLine(json);
             cadeteria = JsonSerializer.Deserialize<Cadeteria>(json);
-            cadeteria.VerDatosCadeteria();
         }
         catch (IOException e)
         {

@@ -2,10 +2,10 @@ using System.Text.Json.Serialization;
 
 public class Cadeteria
 {
-    private string Nombre;
-    private int Telefono;
-    private List<Cadete> ListadoCadetes;
-    private List<Pedido> ListadoPedidos;
+    public string Nombre { get; set; }
+    public int Telefono { get; set; }
+    public List<Cadete> ListadoCadetes { get; set; }
+    public List<Pedido> ListadoPedidos { get; set; }
 
 
     public Cadeteria(){
