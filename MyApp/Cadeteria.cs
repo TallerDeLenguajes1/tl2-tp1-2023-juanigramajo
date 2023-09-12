@@ -46,9 +46,19 @@ public class Cadeteria
         return pedid;
     }
 
-    public void VerDatosCadeteria(){
-        Console.WriteLine("\nNombre: " + this.Nombre);
-        Console.WriteLine("Telefono: " + this.Telefono);
+    // public void VerDatosCadeteria(){
+    //     Console.WriteLine("\nNombre: " + this.Nombre);
+    //     Console.WriteLine("Telefono: " + this.Telefono);
+    // }
+
+    public string VerNombreCadeteria(){
+        
+        return this.Nombre;
+    }
+
+    public string VerTelefonoCadeteria(){
+        
+        return this.Telefono;
     }
 
     public void MostrarCadetes(){
@@ -127,7 +137,7 @@ public class Cadeteria
                     if (cad.getID() == cadeteID)
                     {
                         ped.AsignarCadete(cad);
-                        Console.WriteLine($"\nPedido Nº[{nroPed}] asignado con éxito al cadete Nº[{cadeteID}]");
+                        // Console.WriteLine($"\nPedido Nº[{nroPed}] asignado con éxito al cadete Nº[{cadeteID}]");
                     }
                 }
             }
@@ -176,7 +186,7 @@ public class Cadeteria
             }
         }
 
-        System.Console.WriteLine($"\nPedido Nº[{nroPedido}] reasignado con éxito al cadete Nº[{idCadeteNuevo}]");
+        // Console.WriteLine($"\nPedido Nº[{nroPedido}] reasignado con éxito al cadete Nº[{idCadeteNuevo}]");
     }
 
     public void AñadirCadete(Cadete cadete){
@@ -189,7 +199,7 @@ public class Cadeteria
             if (cad.getID() == id)
             {
                 this.ListadoCadetes.Remove(cad);
-                Console.WriteLine("Se eliminó el cadete con éxito");
+                // Console.WriteLine("Se eliminó el cadete con éxito");
             }
         }
     }
@@ -223,7 +233,7 @@ public class Cadeteria
                     }
                 }
                 this.ListadoPedidos.Remove(ped);
-                Console.WriteLine($"\nSe entregó el pedido Nº[{nro}] con éxito");
+                // Console.WriteLine($"\nSe entregó el pedido Nº[{nro}] con éxito");
                 // Resta 1 a i para compensar el desplazamiento después de eliminar un elemento
                 i--;
             }
@@ -238,7 +248,7 @@ public class Cadeteria
             if (ped.getNroPedido() == nro)
             {
                 this.ListadoPedidos.Remove(ped);
-                Console.WriteLine("\nSe eliminó el pedido con éxito");
+                // Console.WriteLine("\nSe eliminó el pedido con éxito");
                 // Resta 1 a i para compensar el desplazamiento después de eliminar un elemento
                 i--;
             }
