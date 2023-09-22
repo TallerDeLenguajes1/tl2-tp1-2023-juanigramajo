@@ -46,23 +46,23 @@ public class Pedido
         }
     }
     
-    public void ListarPedido(){
-        Console.WriteLine($"\nPedido Nº[{this.Nro}]");
-        Console.WriteLine($"Observación: " + this.Obs);
-        Console.WriteLine($"Nombre del cliente: " + this.cliente.GetNombre());
-        Console.WriteLine($"Estado: " + this.Estado);
-    }
+    // public void ListarPedido(){
+    //     Console.WriteLine($"\nPedido Nº[{this.Nro}]");
+    //     Console.WriteLine($"Observación: " + this.Obs);
+    //     Console.WriteLine($"Nombre del cliente: " + this.cliente.GetNombre());
+    //     Console.WriteLine($"Estado: " + this.Estado);
+    // }
 
-    public void VerDireccionCliente(){
-        Console.WriteLine("La dirección del cliente es: " + this.cliente.GetDireccion());
-        Console.WriteLine(this.cliente.GetDatosReferenciaDireccion());
-    }
+    // public void VerDireccionCliente(){
+    //     Console.WriteLine("La dirección del cliente es: " + this.cliente.GetDireccion());
+    //     Console.WriteLine(this.cliente.GetDatosReferenciaDireccion());
+    // }
 
-    public void VerDatosCliente(){
-        Console.WriteLine("\nDatos del cliente:\n");
-        Console.WriteLine("Nombre: " + this.cliente.GetNombre());
-        Console.WriteLine("Direccion: " + this.cliente.GetDireccion());
-        Console.WriteLine("Telefono: " + this.cliente.GetTelefono());
-        Console.WriteLine("Datos de referencia de la direccion: " + this.cliente.GetDatosReferenciaDireccion());
-    }
+    // public void VerDatosCliente(){
+    //     Console.WriteLine("\nDatos del cliente:\n");
+    //     Console.WriteLine("Nombre: " + this.cliente.GetNombre());
+    //     Console.WriteLine("Direccion: " + this.cliente.GetDireccion());
+    //     Console.WriteLine("Telefono: " + this.cliente.GetTelefono());
+    //     Console.WriteLine("Datos de referencia de la direccion: " + this.cliente.GetDatosReferenciaDireccion());
+    // }
 }

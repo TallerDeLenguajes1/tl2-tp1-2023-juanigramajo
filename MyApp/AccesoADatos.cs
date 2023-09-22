@@ -42,7 +42,7 @@ public class AccesoCSV : AccesoADatos
         }
         catch (IOException e)
         {
-            Console.WriteLine($"Error al leer el archivo: {e.Message}");
+            // Console.WriteLine($"Error al leer el archivo: {e.Message}");
         }
 
         return cadeteria;
@@ -73,7 +73,7 @@ public class AccesoCSV : AccesoADatos
         }
         catch (IOException e)
         {
-            Console.WriteLine($"Error al leer el archivo: {e.Message}");
+            // Console.WriteLine($"Error al leer el archivo: {e.Message}");
         }
     }
 }
@@ -97,7 +97,7 @@ public class AccesoJSON : AccesoADatos
         }
         catch (IOException e)
         {
-            Console.WriteLine($"Error al leer el archivo: {e.Message}");
+            // Console.WriteLine($"Error al leer el archivo: {e.Message}");
         }
 
         return cadeteria;
@@ -120,7 +120,7 @@ public class AccesoJSON : AccesoADatos
         }
         catch (IOException e)
         {
-            Console.WriteLine($"Error al leer el archivo: {e.Message}");
+            // Console.WriteLine($"Error al leer el archivo: {e.Message}");
         }
     }
 }

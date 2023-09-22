@@ -34,10 +34,10 @@ public class Cliente{
         return this.DatosReferenciaDireccion;
     }
 
-    public void ListarDatosCliente(){
-        Console.WriteLine("Nombre: " + this.Nombre);
-        Console.WriteLine("Nombre: " + this.Direccion);
-        Console.WriteLine("Nombre: " + this.Telefono);
-        Console.WriteLine("Nombre: " + this.DatosReferenciaDireccion);
-    }
+    // public void ListarDatosCliente(){
+    //     Console.WriteLine("Nombre: " + this.Nombre);
+    //     Console.WriteLine("Nombre: " + this.Direccion);
+    //     Console.WriteLine("Nombre: " + this.Telefono);
+    //     Console.WriteLine("Nombre: " + this.DatosReferenciaDireccion);
+    // }
 }
