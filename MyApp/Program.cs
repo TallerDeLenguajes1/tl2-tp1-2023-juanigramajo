@@ -28,7 +28,8 @@ void CargaDeArchivos(){
         Console.WriteLine("\nCargando datos de la cadeteria desde un archivo CSV...");
 
         cadeteria = accesoCSV.CargarDatosCadeteria();
-        cadeteria.VerDatosCadeteria();
+        cadeteria.VerNombreCadeteria();
+        cadeteria.VerTelefonoCadeteria();
 
         Console.WriteLine("\n\nCargando datos de los cadetes...");
         
@@ -42,7 +43,8 @@ void CargaDeArchivos(){
         Console.WriteLine("\nCargando datos de la cadeteria desde un archivo JSON...");
 
         cadeteria = accesoJSON.CargarDatosCadeteria();
-        cadeteria.VerDatosCadeteria();
+        cadeteria.VerNombreCadeteria();
+        cadeteria.VerTelefonoCadeteria();
 
         Console.WriteLine("\n\nCargando datos de los cadetes...");
         
@@ -58,26 +60,26 @@ cadeteria.TomarPedido(3, "Sanguche JYQ", "En preparación", "Nico", "Juan B Just
 cadeteria.TomarPedido(4, "Sanguche milanesa", "En preparación", "Tiziano", "Avellaneda 300", 381774635, "Pasando el drugstore");
 
 
-cadeteria.MostrarPedidosDeCadetes(1);
-cadeteria.MostrarPedidosDeCadetes(2);
-cadeteria.MostrarPedidosDeCadetes(3);
+// cadeteria.MostrarPedidosDeCadetes(1);
+// cadeteria.MostrarPedidosDeCadetes(2);
+// cadeteria.MostrarPedidosDeCadetes(3);
 
 cadeteria.AsignarCadeteAPedido(1, 2);
 cadeteria.AsignarCadeteAPedido(2, 3);
 cadeteria.AsignarCadeteAPedido(3, 1);
 cadeteria.AsignarCadeteAPedido(2, 4);
 
-cadeteria.MostrarPedidosDeCadetes(1);
-cadeteria.MostrarPedidosDeCadetes(2);
-cadeteria.MostrarPedidosDeCadetes(3);
+// cadeteria.MostrarPedidosDeCadetes(1);
+// cadeteria.MostrarPedidosDeCadetes(2);
+// cadeteria.MostrarPedidosDeCadetes(3);
 
 cadeteria.ReasignarCadete(1, 3, 2);
 
-cadeteria.MostrarPedidosDeCadetes(1);
-cadeteria.MostrarPedidosDeCadetes(2);
-cadeteria.MostrarPedidosDeCadetes(3);
+// cadeteria.MostrarPedidosDeCadetes(1);
+// cadeteria.MostrarPedidosDeCadetes(2);
+// cadeteria.MostrarPedidosDeCadetes(3);
 
 cadeteria.FinalizarPedido(1);
 cadeteria.FinalizarPedido(2);
 cadeteria.JornalACobrar(3);
-cadeteria.GenerarInforme();
+// cadeteria.GenerarInforme();

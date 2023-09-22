@@ -27,7 +27,7 @@ public class Cadeteria
 
         foreach (Pedido ped in this.ListadoPedidos)
         {            
-            Console.WriteLine($"\n--------------------------");
+            // Console.WriteLine($"\n--------------------------");
             ped.ListarPedido();
         }
     }
@@ -62,13 +62,15 @@ public class Cadeteria
     }
 
     public void MostrarCadetes(){
-        foreach (Cadete cad in this.ListadoCadetes)
-        {
-            Console.WriteLine($"\nCadete [{cad.getID()}]");
-            Console.WriteLine($"Nombre: " + cad.getNombre());
-            Console.WriteLine($"Dirección: " + cad.getDireccion());
-            Console.WriteLine($"Telefono: " + cad.getTelefono());
-        }
+        // foreach (Cadete cad in this.ListadoCadetes)
+        // {
+        //     Console.WriteLine($"\nCadete [{cad.getID()}]");
+        //     Console.WriteLine($"Nombre: " + cad.getNombre());
+        //     Console.WriteLine($"Dirección: " + cad.getDireccion());
+        //     Console.WriteLine($"Telefono: " + cad.getTelefono());
+        // }
+
+        return this.ListadoCadetes;
     }
 
     public int JornalACobrar(int cadeteID){
@@ -84,18 +86,18 @@ public class Cadeteria
         return jornal;
     }
 
-    public void GenerarInforme(){
-        int total = 0;
-        foreach (Cadete cad in this.ListadoCadetes)
-        {
-            Console.WriteLine("\n------------------------------------------------");
-            Console.WriteLine($"\nCadete Nº[{cad.getID()}]");
-            Console.WriteLine("\nCantidad de envios en el día: " + cad.getPedEntregados());
-            Console.WriteLine("\nTotal recaudado en el día: " + this.JornalACobrar(cad.getID()));
-            total = total + this.JornalACobrar(cad.getID());
-        }
-        Console.WriteLine("\n\n\nTotal ganado en el día por la cadetería: " + total);
-    }
+    // public void GenerarInforme(){
+    //     int total = 0;
+    //     foreach (Cadete cad in this.ListadoCadetes)
+    //     {
+    //         Console.WriteLine("\n------------------------------------------------");
+    //         Console.WriteLine($"\nCadete Nº[{cad.getID()}]");
+    //         Console.WriteLine("\nCantidad de envios en el día: " + cad.getPedEntregados());
+    //         Console.WriteLine("\nTotal recaudado en el día: " + this.JornalACobrar(cad.getID()));
+    //         total = total + this.JornalACobrar(cad.getID());
+    //     }
+    //     Console.WriteLine("\n\n\nTotal ganado en el día por la cadetería: " + total);
+    // }
 
     // public void MostrarPedidosDeCadetes(){
     //     foreach (Cadete cad in this.ListadoCadetes)
@@ -104,27 +106,27 @@ public class Cadeteria
     //     }
     // }
 
-    public void MostrarPedidosDeCadetes(int idCadete){
+    // public void MostrarPedidosDeCadetes(int idCadete){
 
-        int bandera = 0;
+    //     int bandera = 0;
 
-        Console.WriteLine("\n-----------------------");
-        Console.WriteLine($"\nCadete Nº[{idCadete}]");
+    //     Console.WriteLine("\n-----------------------");
+    //     Console.WriteLine($"\nCadete Nº[{idCadete}]");
 
-        foreach (Pedido ped in this.ListadoPedidos)
-        {
-            if (ped.getIDCadete() == idCadete)
-            {
-                ped.ListarPedido();
-                bandera = 1;
-            }
-        }
+    //     foreach (Pedido ped in this.ListadoPedidos)
+    //     {
+    //         if (ped.getIDCadete() == idCadete)
+    //         {
+    //             ped.ListarPedido();
+    //             bandera = 1;
+    //         }
+    //     }
 
-        if (bandera == 0)
-        {
-            Console.WriteLine($"\n--- Aún no posee pedidos para entregar ---");
-        }
-    }
+    //     if (bandera == 0)
+    //     {
+    //         Console.WriteLine($"\n--- Aún no posee pedidos para entregar ---");
+    //     }
+    // }
 
     public void AsignarCadeteAPedido(int cadeteID, int nroPed){
 
